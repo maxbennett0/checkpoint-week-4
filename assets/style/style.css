@@ -1,1 +1,18 @@
 /* BASIC STYLES HERE */
+.bg-img {
+  background-size: cover;
+}
+
+.authorText {
+  opacity: 0;
+}
+
+.authorText:hover {
+  opacity: 100;
+  transition: ease 1s;
+}
+
+.text-shadow {
+  color: white;
+  text-shadow: 2px 2px 4px #000000
+}

@@ -12,34 +12,75 @@
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="assets/style/main.css">
   <link rel="stylesheet" href="assets/style/style.css">
-  <title>checkpoint-week-4</title>
+  <title>Inspire</title>
 </head>
 
-<body>
-  <header>
-    <nav class="navbar navbar-dark navbar-expand bg-dark text-light no-select">
-      <a class="navbar-brand ms-3" href="#">
-        <img src="https://codeworks.blob.core.windows.net/public/assets/img/cw-mark.png" height="45" alt=""
-          loading="lazy">
-        <span class="ms-2">checkpoint-week-4</span>
-      </a>
-    </nav>
+<style>
+  body.debug .container,
+  body.debug .container-fluid {
+    outline: 2px double blue;
+    outline-offset: -2px;
+  }
+
+  body.debug .row {
+    outline: 2px dashed red;
+    outline-offset: -2px;
+  }
+
+  body.debug [class*="col-"] {
+    outline: 2px dotted forestgreen;
+    outline-offset: -3px;
+  }
+</style>
+
+<body class="bg-img container-fluid">
+  <header class="row justify-content-between">
+    <!-- NOTE figure the nav bar out later IT SUCKS WHYYYYYYYYYY -->
+    <div id="imageAuthor" class="text-shadow col-2 text-center m-2 fs-2 fw-bold">Author Here</div>
+    <button id="weather" class="btn btn-dark text-shadow col-2 text-center m-2 fs-2 fw-bold"
+      onclick="app.inspireController.switchWeather()">Weather Here</button>
+    <!--  -->
   </header>
-  <main>
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-12">
-          <div id="app"></div>
+  <main class="d-flex flex-column text-light justify-content-around">
+    <section class="row justify-content-center">
+      <div class="col-6 text-center text-light text-shadow">
+        <h1 id="clock">Time</h1>
+      </div>
+    </section>
+    <section class="row justify-content-center text-shadow">
+      <div class="col-12 text-center">
+        <h3 id="quote">Quote:</h3>
+        <div class="authorText">
+          <p id="authorText">Author Name</p>
         </div>
       </div>
-    </div>
+    </section>
   </main>
-  <footer class="bg-dark text-light">
-    <div class="text-center no-select">
-      <p><small>Made with 💖 by CodeWorks</small></p>
-    </div>
+  <footer>
+    <section class="row justify-content-around">
+      <div class="col-3 card text-center text-dark justify-content-between p-2">
+        <div>
+          <h6 id="todoCount">Todo List</h6>
+        </div>
+        <div>
+          <form onsubmit="app.inspireController.addTodo()">
+            <div>
+              <input type="text" name="description" id="description" placeholder="Add Todo" minlength="3"
+                maxlength="15">
+            </div>
+            <button class="btn btn-success m-2">Submit</button>
+          </form>
+          <div id="todoArea">
+            <!-- <div>
+              <input type="checkbox" name="task" id="task"> words
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </section>
   </footer>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.23.0/axios.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
     crossorigin="anonymous"></script>
